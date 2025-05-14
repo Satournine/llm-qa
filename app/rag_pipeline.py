@@ -38,18 +38,3 @@ def search_index(query, top_k = 5, index_path="faiss_index"):
 
     results = [chunks[i] for i in indices[0]]
     return results
-
-
-if __name__ == "__main__":
-    from pdf_parser import extract_text_from_pdf, chunk_text
-    text = extract_text_from_pdf("example.pdf")
-    chunks = chunk_text(text)
-    build_faiss_index(chunks)
-
-    while True:
-        q = input("ask question")
-        if q.lower() == "exit":
-            break
-        results = search_index(q)
-        print("\n".join(results[:3]))
-        print("-" * 80)
