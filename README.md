@@ -38,15 +38,17 @@ Upload any legal document (e.g., GDPR), and ask questions in natural language. T
 
 ### Local Run
 
-```bash python3 -m venv llm.venv
+```
+python3 -m venv llm.venv
 source llm.venv/bin/activate  # or llm.venv\Scripts\activate on Windows
 pip install -r requirements.txt
-streamlit run app/main.py```
+streamlit run app/main.py
+```
 	
----
 	
 ### Docker Run
-```bash
+
+```
 docker build -f docker/Dockerfile -t llm-qa .
 docker run -p 8501:8501 llm-qa
 ```
