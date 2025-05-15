@@ -5,3 +5,4 @@ transformers
 pymupdf
 streamlit
 python-dotenv
+torch

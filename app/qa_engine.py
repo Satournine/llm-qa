@@ -22,15 +22,5 @@ def format_prompt(context_chunks, question):
 def generate_answer(question, top_k=3):
     chunks = search_index(question, top_k=top_k)
     prompt = format_prompt(chunks, question)
-    result = generator(prompt, max_length=256, do_sample=False)[0]["generated_text"]
+    result = generator(prompt, max_length=512, do_sample=False)[0]["generated_text"]
     return result
-
-
-if __name__ == "__main__":
-    while True:
-        q=input("Ask a question")
-        if q.lower() == "exit":
-            break
-        answer = generate_answer(q)
-        print("\nAnswer\n", answer)
-        print("-" * 160)

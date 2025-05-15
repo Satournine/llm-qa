@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pkl
+
+# Virtualenvs
+.venv/
+env/
+venv/
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Editor configs
+.idea/
+.vscode/
+
+# Git
+.git/
+.gitignore
+
+# Data / build artifacts
+*.pdf
+faiss_index/
+*.faiss
+*.pkl
+
+# Docker
+docker/Dockerfile
