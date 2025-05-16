@@ -23,7 +23,7 @@ Upload any legal document (e.g., GDPR), and ask questions in natural language. T
 
 | Layer            | Tool                                       |
 |------------------|---------------------------------------------|
-| LLM              | `flan-t5-base` (Hugging Face Transformers)  |
+| LLM              | `gemma-2b-it` (Hugging Face Transformers)  |
 | Embeddings       | `all-MiniLM-L6-v2` via SentenceTransformers |
 | Vector DB        | FAISS                                       |
 | PDF Parsing      | PyMuPDF                                     |
@@ -35,7 +35,18 @@ Upload any legal document (e.g., GDPR), and ask questions in natural language. T
 ---
 
 ## 🚀 Getting Started
+### Hugging Face Access Token
+You'll need a token to access Gemma models from Hugging Face.
 
+    -Create a .env file in the root directory:
+```
+HF_TOKEN=hf_your_token_here
+```
+    -Add it to GitHub Secrets for CI:
+
+    	-Go to GitHub → Settings → Secrets → Actions
+
+    	-Add secret: HF_TOKEN
 ### Local Run
 
 ```
@@ -50,7 +61,12 @@ streamlit run app/main.py
 
 ```
 docker build -f docker/Dockerfile -t llm-qa .
-docker run -p 8501:8501 llm-qa
+docker run --gpus all ^
+  -v "C:\Users\USER\.cache\huggingface:/root/.cache/huggingface" ^
+  --env-file .env ^
+  -p 8501:8501 ^
+  llm-qa
+
 ```
 ---
 
