@@ -1,32 +1,44 @@
-# Python
+# Byte-compiled / cache files
 __pycache__/
-*.pyc
+*.py[cod]
 *.pyo
 *.pyd
-*.pkl
+*.so
+*.ipynb_checkpoints
 
-# Virtualenvs
-.venv/
-env/
-venv/
+# Local environment
+*.venv/
+llm.venv/
+.env
+.env.*
 
-# OS junk
+# Model/data cache
+.cache/
+datasets/
+checkpoints/
+logs/
+
+# Hugging Face model cache (only if you’re NOT mounting it)
+# comment out if you're using: -v $HOME/.cache/huggingface:/root/.cache/huggingface
+.huggingface/
+huggingface/
+
+# FAISS index (regenerated on load)
+faiss_index/
+
+# Docker
+docker-compose.override.yml
+Dockerfile.*
+docker/
+
+# OS-specific
 .DS_Store
 Thumbs.db
 
-# Editor configs
-.idea/
+# IDE/editor stuff
 .vscode/
+.idea/
+*.iml
 
-# Git
-.git/
-.gitignore
-
-# Data / build artifacts
-*.pdf
-faiss_index/
-*.faiss
-*.pkl
-
-# Docker
-docker/Dockerfile
+# Streamlit junk
+.streamlit/config.toml
