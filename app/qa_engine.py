@@ -6,8 +6,8 @@ hf_token = os.getenv("HF_TOKEN")
 
 model_name = "google/gemma-2b-it"
 
-tokenizer = AutoTokenizer.from_pretrained(model_name, hf_token)
-model = AutoModelForCausalLM.from_pretrained(model_name, hf_token,
+tokenizer = AutoTokenizer.from_pretrained(model_name, token=hf_token)
+model = AutoModelForCausalLM.from_pretrained(model_name, token=hf_token,
                                              torch_dtype="auto")
 
 qa_pipeline = pipeline("text-generation", model=model, tokenizer=tokenizer, do_sample=True, max_new_tokens=512, temperature=0.7, top_p=0.9,repetition_penalty=1.1)
