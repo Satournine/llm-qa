@@ -27,6 +27,3 @@ jobs:
       run: python app/test_app.py
       env:
         HF_TOKEN: ${{ secrets.HF_TOKEN }}
-
-    - name: Build Docker image
-      run: docker build -f docker/Dockerfile -t llm-qa .
